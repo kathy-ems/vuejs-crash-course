@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Header @toggle-add-task="toggleAddTask" title="Hello" :showAddTask="showAddTask" />
-    <router-view></router-view>
+    <router-view :showAddTask="showAddTask"></router-view>
     <Footer />
   </div>
 </template>
