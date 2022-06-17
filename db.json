@@ -16,7 +16,13 @@
       "id": 3,
       "text": "Meeting at school",
       "day": "March 3rd at 10:30am",
-      "reminder": false
+      "reminder": true
+    },
+    {
+      "text": "Water Trees",
+      "day": "June 14th at 3pm",
+      "reminder": false,
+      "id": 4
     }
   ]
 }
