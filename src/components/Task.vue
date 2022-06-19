@@ -1,13 +1,13 @@
 <template>
   <div class="bg-gray-100 border-gray-400 border-b px-3 py-1 ">
-    <div class="grid gap-2 grid-cols-6 items-center">
-      <span class="">
+    <div class="grid gap-2 grid-cols-8 items-center">
+      <span class="justify-self-start pl-2">
         <i @click="$emit('toggle-reminder')" :class="[task.reminder ? 'fa fa-light fa-circle' : 'fa-solid fa-circle-check']"></i>
       </span>
-      <span class="col-start-2 col-end-5">
+      <span :class="[task.reminder ? '' : 'line-through text-grayBlue-200', 'col-start-2 col-end-7']">
         {{ task.text }}
       </span>
-      <span class="col-start-6 col-span-1 justify-self-end pr-1">
+      <span class="col-start-8 col-span-1 justify-self-end pr-2">
         <i @click="$emit('delete-task')" class="fas fa-times" />
       </span>
     </div>
