@@ -1,16 +1,17 @@
 <template>
-  <!-- <div class="container h14 w-80 bg-gray rounded-lg drop-shadow-med"> -->
-    <Header @toggle-add-task="toggleAddTask" title="Hello" :showAddTask="showAddTask" />
-    <div class="mx-auto">
-      <router-view :showAddTask="showAddTask"></router-view>
+  <div class="bg-gray-400">
+    <div class="container h14 w-80 bg-brightBlue">
+      <Header @toggle-add-task="toggleAddTask" title="TODO" :showAddTask="showAddTask" />
+      <div>
+        <router-view :showAddTask="showAddTask"></router-view>
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
 import Header from './components/Header'
-// import Header from '@/components/Header'
 import Footer from './components/Footer.vue'
 
 export default {
