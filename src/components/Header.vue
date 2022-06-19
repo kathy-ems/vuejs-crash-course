@@ -1,7 +1,8 @@
 <template>
-    <header>
-        <h1>{{ title }}</h1>
-        <Button v-show="homePage" @btn-click="$emit('toggle-add-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" />
+    <header class="text-center bg-blue-800 py-10">
+      <h1>{{ title }}</h1>
+      
+      <!-- <Button v-show="homePage" @btn-click="$emit('toggle-add-task')" :text="showAddTask ? 'Close' : 'Add Task'" :color="showAddTask ? 'red' : 'green'" /> -->
     </header>
 </template>
 
@@ -36,10 +37,10 @@ export default {
 </script>
 
 <style scoped>
-header {
+/* header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-}
+} */
 </style>

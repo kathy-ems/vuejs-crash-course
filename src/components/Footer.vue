@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>
+    <p class="text-xs">
       Copyright &copy; 2022
       <router-link to="/about">About</router-link>
     </p>

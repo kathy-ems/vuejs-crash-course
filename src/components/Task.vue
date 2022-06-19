@@ -1,9 +1,17 @@
 <template>
-    <div>
-      <i @click="$emit('toggle-reminder')" :class="[task.reminder ? 'fa fa-light fa-circle' : 'fa-solid fa-circle-check']" ></i>
-      {{ task.text }}
-      <i @click="$emit('delete-task')" class="fas fa-times" />
+  <div class="bg-gray-100 border-gray-400 border-b px-3 py-1 ">
+    <div class="grid gap-2 grid-cols-6 items-center">
+      <span class="">
+        <i @click="$emit('toggle-reminder')" :class="[task.reminder ? 'fa fa-light fa-circle' : 'fa-solid fa-circle-check']"></i>
+      </span>
+      <span class="col-start-2 col-end-5">
+        {{ task.text }}
+      </span>
+      <span class="col-start-6 col-span-1 justify-self-end pr-1">
+        <i @click="$emit('delete-task')" class="fas fa-times" />
+      </span>
     </div>
+  </div>
 </template>
 
 <script>
@@ -16,11 +24,11 @@ export default {
 </script>
 
 <style scope>
-.fas {
+/* .fas {
   display: flex;
   color: red;
   justify-content: right;
-}
+} */
 .fa-circle-check {
   background: -webkit-gradient(linear, left top, right bottom, from(hsl(192, 100%, 67%)), to(hsl(280, 87%, 65%)));
 	-webkit-background-clip: text;
@@ -31,14 +39,14 @@ export default {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-.task {
+/* .task {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
-}
+} */
 .task.reminder {
-  border-left: 5px solid green;
+  /* border-left: 5px solid green; */
 }
 .task h3 {
   display: flex;
