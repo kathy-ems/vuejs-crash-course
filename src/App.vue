@@ -1,13 +1,16 @@
 <template>
-  <div class="container">
+  <!-- <div class="container h14 w-80 bg-gray rounded-lg drop-shadow-med"> -->
     <Header @toggle-add-task="toggleAddTask" title="Hello" :showAddTask="showAddTask" />
-    <router-view :showAddTask="showAddTask"></router-view>
+    <div class="mx-auto">
+      <router-view :showAddTask="showAddTask"></router-view>
+    </div>
     <Footer />
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
 import Header from './components/Header'
+// import Header from '@/components/Header'
 import Footer from './components/Footer.vue'
 
 export default {
@@ -31,7 +34,7 @@ export default {
 
 <style>
 @import url('https://fonts.google.com/specimen/Josefin+Sans:wght@400;700&display=swap');
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -47,7 +50,7 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
-}
+} */
 .btn {
   display: inline-block;
   background: #000;
