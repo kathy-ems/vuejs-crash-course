@@ -1,5 +1,5 @@
 # vuejs-crash-course
-Creating a Vue JS app with JSON server API backend
+Creating a Vue JS app with JSON server API backend with Tailwind CSS
 
 ## Project setup
 ### To start the app
