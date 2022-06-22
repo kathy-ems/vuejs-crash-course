@@ -2,9 +2,23 @@
 Creating a Vue JS app with JSON server API backend
 
 ## Project setup
-```
-npm install
-```
+### To start the app
+1. Download the repository
+
+2. Install JSON Server
+`npm install json-server`
+
+3. Install dependencies
+`npm install`
+
+4. Start the server
+`npm run dev`
+
+5. Start the front end
+`npm run serve`
+
+6. Run the tests
+`npm run test:unit`
 
 ### Compiles and hot-reloads for development (serve for front end, dev for JSON server)
 ```

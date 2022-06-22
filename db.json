@@ -3,25 +3,31 @@
     {
       "id": 1,
       "text": "Doctors appt",
-      "day": "March 1st at 2:30pm",
-      "reminder": false
+      "order": 1,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "text": "Grocery Shopping",
+      "order": 2,
+      "completed": true
     },
     {
       "id": 3,
-      "text": "Meeting at school",
-      "day": "March 3rd at 10:30am",
-      "reminder": false
+      "text": "Meeting at School",
+      "order": 3,
+      "completed": true
     },
     {
-      "text": "Water Trees",
-      "day": "June 14th at 3pm",
-      "reminder": false,
-      "id": 4
+      "id": 4,
+      "text": "Mail Letters",
+      "order": 4,
+      "completed": false
     },
     {
-      "text": "Grocery shopping",
-      "day": "Today",
-      "reminder": true,
+      "text": "Dentist appt",
+      "order": 5,
+      "completed": false,
       "id": 5
     }
   ]

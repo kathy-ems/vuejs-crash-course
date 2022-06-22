@@ -1,14 +1,46 @@
 <template>
-  <div class="bg-gray-100 border-gray-400 border-b px-3 py-1 ">
+  <div
+    class="text-grayBlue-400 dark:text-dmGrayBlue-100 bg-customGray-100 dark:bg-dmGrayBlue-410 border-customGray-400 dark:border-dmGrayBlue-400 border-b px-3 py-1"
+  >
     <div class="grid gap-2 grid-cols-8 items-center">
-      <span class="justify-self-start pl-2">
-        <i @click="$emit('toggle-reminder')" :class="[task.reminder ? 'fa fa-light fa-circle' : 'fa-solid fa-circle-check']"></i>
+      <span
+        class="justify-self-start cursor-pointer"
+        @click="$emit('toggle-completed')"
+        :class="[
+          task.completed
+            ? 'line-through text-grayBlue-200 dark:text-dmGrayBlue-300'
+            : '',
+          'col-start-1 col-end-7',
+        ]"
+        data-test="todo-checkbox"
+      >
+        <span
+          :class="[
+            task.completed
+              ? 'pl-1 bg-gradient-to-r from-teal to-purple border-none rounded-full'
+              : 'tag:button w-5 h-5 rounded-full bg-transparent border inline-block align-middle border-dmGrayBlue-300',
+          ]"
+        >
+          <img
+            v-show="task.completed"
+            :src="this.icons.iconCheck"
+            alt="Check box"
+            class="inline-block align-text-left pr-1"
+          />
+        </span>
+        <span class="pl-7">
+          {{ task.text }}
+        </span>
       </span>
-      <span :class="[task.reminder ? '' : 'line-through text-grayBlue-200', 'col-start-2 col-end-7']">
-        {{ task.text }}
-      </span>
-      <span class="col-start-8 col-span-1 justify-self-end pr-2">
-        <i @click="$emit('delete-task')" class="fas fa-times" />
+      <span
+        @click="$emit('delete-task')"
+        class="col-start-8 col-span-1 justify-self-end pr-2"
+      >
+        <img
+          :src="this.icons.iconCross"
+          alt="Delete"
+          class="inline-block cursor-pointer"
+        />
       </span>
     </div>
   </div>
@@ -16,41 +48,10 @@
 
 <script>
 export default {
-    name: 'Task',
-    props: {
-        task: Object
-    },
-}
+  name: "Task",
+  props: {
+    task: Object,
+    icons: Object,
+  },
+};
 </script>
-
-<style scope>
-/* .fas {
-  display: flex;
-  color: red;
-  justify-content: right;
-} */
-.fa-circle-check {
-  background: -webkit-gradient(linear, left top, right bottom, from(hsl(192, 100%, 67%)), to(hsl(280, 87%, 65%)));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-.fa-circle {
-  background: -webkit-gradient(linear, left top, right bottom, from(hsl(192, 100%, 67%)), to(hsl(280, 87%, 65%)));
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-/* .task {
-  background: #f4f4f4;
-  margin: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-} */
-.task.reminder {
-  /* border-left: 5px solid green; */
-}
-.task h3 {
-  display: flex;
-  /* align-items: left; */
-  /* justify-content: space-between; */
-}
-</style>

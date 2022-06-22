@@ -1,80 +1,56 @@
 <template>
-  <div class="bg-gray-400">
-    <div class="container h-auto bg-brightBlue">
-    <div class="h-auto w-96 bg-teal">
-      <Header @toggle-add-task="toggleAddTask" title="TODO" :showAddTask="showAddTask" />
-      <div>
-        <router-view :showAddTask="showAddTask"></router-view>
-      </div>
-      <Footer />
+  <div :class="mode" class="relative">
+    <img :src="bgImage" class="h-64 w-full" alt="Header Image" />
+    <div class="h-screen bg-grayBlue-100 dark:bg-dmBlue40">
+      <div class="container grid justify-items-center absolute top-0 pt-10">
+        <div class="bg-transparent max-w-screen-sm min-w-min">
+          <Header :mode="mode" @change-mode="changeMode" :icons="icons" />
+          <router-view />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from './components/Footer.vue'
+import Header from "./components/Header";
+import iconMoon from "@/assets/icon-moon.svg";
+import iconSun from "@/assets/icon-sun.svg";
 
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Footer,
-  },
+  name: "App",
   data() {
     return {
-      showAddTask: false,
-    }
+      mode: "dark",
+    };
   },
-  methods: {
-    toggleAddTask() {
-     this.showAddTask = !this.showAddTask
+  computed: {
+    bgImage() {
+      if (this.mode === "dark") {
+        return require("@/assets/bg-desktop-dark.jpg");
+      } else {
+        return require("@/assets/bg-desktop-light.jpg");
+      }
     },
-  }
-}
+    icons() {
+      return {
+        iconMoon,
+        iconSun,
+      };
+    },
+  },
+  components: {
+    Header,
+  },
+  emit: ["change-mode"],
+  methods: {
+    changeMode() {
+      this.mode = this.mode === "dark" ? "light" : "dark";
+    },
+  },
+};
 </script>
 
 <style>
-@import url('https://fonts.google.com/specimen/Josefin+Sans:wght@400;700&display=swap');
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: 'Josefin Sans', sans-serif;
-}
-.container {
-  max-width: 500px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
-} */
-.btn {
-  display: inline-block;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-}
-.btn:focus {
-  outline: none;
-}
-.btn:active {
-  transform: scale(0.98);
-}
-.btn-block {
-  display: block;
-  width: 100%;
-}
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap");
 </style>
